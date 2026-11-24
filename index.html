@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="id" data-tema="gelap">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title id="judul-halaman">SMAN 1 Maja Photography Exhibition</title>
+<meta name="description" content="Pendamping digital Pameran Fotografi SMAN 1 Maja — telusuri cerita, teknik, dan tantangan di balik setiap karya.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: dark;
+    --jarak-tepi: clamp(20px, 5vw, 64px);
+    --lebar-konten: 1180px;
+    --fon-tampil: 'Playfair Display', serif;
+    --fon-teks: 'Lora', serif;
+    --durasi-cepat: .25s;
+    --durasi-sedang: .6s;
+    --motif-batik: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cg fill='white'%3E%3Ccircle cx='24' cy='7' r='9'/%3E%3Ccircle cx='24' cy='41' r='9'/%3E%3Ccircle cx='7' cy='24' r='9'/%3E%3Ccircle cx='41' cy='24' r='9'/%3E%3Ccircle cx='24' cy='24' r='5'/%3E%3Ccircle cx='24' cy='7' r='2.4' fill='black'/%3E%3Ccircle cx='24' cy='41' r='2.4' fill='black'/%3E%3Ccircle cx='7' cy='24' r='2.4' fill='black'/%3E%3Ccircle cx='41' cy='24' r='2.4' fill='black'/%3E%3C/g%3E%3C/svg%3E");
+    --motif-mendung: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='70'%3E%3Cg fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M-5,58 Q10,30 25,58 Q40,30 55,58 Q70,30 85,58 Q100,30 115,58'/%3E%3Cpath d='M-5,45 Q10,22 25,45 Q40,22 55,45 Q70,22 85,45 Q100,22 115,45'/%3E%3Cpath d='M-5,33 Q10,14 25,33 Q40,14 55,33 Q70,14 85,33 Q100,14 115,33'/%3E%3Cpath d='M-5,22 Q10,7 25,22 Q40,7 55,22 Q70,7 85,22 Q100,7 115,22'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  html[data-tema="gelap"] {
+    --warna-latar: #16120D;
+    --warna-latar-dua: #1F1912;
+    --warna-latar-tiga: #2A2118;
+    --warna-teks: #EEE4CE;
+    --warna-teks-redup: #9C8F72;
+    --warna-garis: rgba(184,147,62,.28);
+    --warna-aksen: #B8933E;
+    --warna-aksen-teks: #D1AE5F;
+    --warna-salah: #9E4336;
+    --warna-benar: #5E7245;
+    --bayangan-gambar: 0 24px 60px -24px rgba(0,0,0,.65);
+  }
+  html[data-tema="terang"] {
+    color-scheme: light;
+    --warna-latar: #F1E9D6;
+    --warna-latar-dua: #E8DCC0;
+    --warna-latar-tiga: #DECDA8;
+    --warna-teks: #2B2015;
+    --warna-teks-redup: #6B5D43;
+    --warna-garis: rgba(123,88,27,.3);
+    --warna-aksen: #7B581B;
+    --warna-aksen-teks: #684B18;
+    --warna-salah: #8C3A2E;
+    --warna-benar: #475E33;
+    --bayangan-gambar: 0 24px 54px -26px rgba(43,32,21,.35);
+  }
+  .pita-batik {
+    height: 26px;
+    background-color: var(--warna-aksen);
+    -webkit-mask-image: var(--motif-batik); mask-image: var(--motif-batik);
+    -webkit-mask-repeat: repeat; mask-repeat: repeat;
+    -webkit-mask-size: 24px 24px; mask-size: 24px 24px;
+    -webkit-mask-position: center; mask-position: center;
+    opacity: .55;
+  }
+  .pita-batik.pita-mendung {
+    height: 30px;
+    -webkit-mask-image: var(--motif-mendung); mask-image: var(--motif-mendung);
+    -webkit-mask-size: 70px 54px; mask-size: 70px 54px;
+    -webkit-mask-position: top center; mask-position: top center;
+    opacity: .5;
+  }
+  .latar-batik {
+    content: "";
+    position: absolute; inset: 0;
+    background-color: var(--warna-aksen);
+    -webkit-mask-image: var(--motif-batik); mask-image: var(--motif-batik);
+    -webkit-mask-repeat: repeat; mask-repeat: repeat;
+    -webkit-mask-size: 84px 84px; mask-size: 84px 84px;
+    opacity: .05;
+    pointer-events: none;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  body {
+    margin: 0;
+    background: var(--warna-latar);
+    color: var(--warna-teks);
+    font-family: var(--fon-teks);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    transition: background var(--durasi-sedang) ease, color var(--durasi-sedang) ease;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  h1, h2, h3 { font-family: var(--fon-tampil); margin: 0; font-weight: 500; }
+  p { margin: 0; }
+  button { font-family: inherit; cursor: pointer; }
+  a { color: inherit; }
+  ::selection { background: var(--warna-aksen); color: #15130F; }
+
+  .pembatas-konten {
+    max-width: var(--lebar-konten);
+    margin: 0 auto;
+    padding: 0 var(--jarak-tepi);
+  }
+  .label-kecil {
+    font-family: var(--fon-tampil);
+    font-variant: small-caps;
+    font-size: .92rem;
+    letter-spacing: .06em;
+    color: var(--warna-teks-redup);
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  /* ===== HEADER ===== */
+  .kepala-situs {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px var(--jarak-tepi);
+    background: linear-gradient(to bottom, var(--warna-latar) 55%, transparent);
+    pointer-events: none;
+  }
+  .kepala-situs > * { pointer-events: auto; }
+  .identitas-pameran { display: flex; flex-direction: column; line-height: 1.15; }
+  .identitas-pameran .nama-sekolah { font-family: var(--fon-tampil); font-size: 1.05rem; letter-spacing: .01em; }
+  .identitas-pameran .nama-pameran { font-size: .68rem; letter-spacing: .1em; color: var(--warna-teks-redup); margin-top: 3px; }
+  .tombol-tema {
+    width: 44px; height: 44px; border-radius: 2px;
+    border: 1px solid var(--warna-garis);
+    outline: 1px solid var(--warna-garis);
+    outline-offset: 3px;
+    background: var(--warna-latar-dua);
+    color: var(--warna-teks);
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color var(--durasi-cepat), transform var(--durasi-cepat);
+  }
+  .tombol-tema:hover { border-color: var(--warna-aksen); }
+  .tombol-tema:active { transform: scale(.92); }
+  .tombol-tema svg { width: 19px; height: 19px; }
+  html[data-tema="terang"] .ikon-bulan { display: none; }
+  html[data-tema="gelap"] .ikon-matahari { display: none; }
+
+  /* ===== HERO / PEMBUKA ===== */
+  .bagian-pembuka {
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: end;
+    padding: 120px var(--jarak-tepi) 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .bagian-pembuka::before {
+    content: "";
+    position: absolute; inset: 0; z-index: 0;
+    background-color: var(--warna-aksen);
+    -webkit-mask-image: var(--motif-batik); mask-image: var(--motif-batik);
+    -webkit-mask-repeat: repeat; mask-repeat: repeat;
+    -webkit-mask-size: 84px 84px; mask-size: 84px 84px;
+    -webkit-mask-position: top right; mask-position: top right;
+    opacity: .06;
+    pointer-events: none;
+  }
+  .bagian-pembuka .kisi-pembuka { position: relative; z-index: 1; }
+  .kisi-pembuka {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 40px;
+    align-items: end;
+    width: 100%;
+    max-width: var(--lebar-konten);
+    margin: 0 auto;
+  }
+  .nomor-karya-besar {
+    font-family: var(--fon-tampil);
+    font-size: clamp(5rem, 16vw, 11rem);
+    line-height: .85;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--warna-teks-redup);
+    font-weight: 300;
+    position: absolute;
+    top: 100px;
+    right: var(--jarak-tepi);
+    user-select: none;
+  }
+  .metadata-pembuka { display: flex; flex-direction: column; gap: 10px; }
+  .metadata-pembuka .baris-meta { display: flex; gap: 14px; flex-wrap: wrap; font-size: .82rem; color: var(--warna-teks-redup); }
+  .metadata-pembuka .baris-meta span:not(:last-child)::after { content: "·"; margin-left: 14px; }
+  .judul-karya {
+    font-size: clamp(2.6rem, 7vw, 6rem);
+    line-height: .98;
+    letter-spacing: -.01em;
+    margin-top: 14px;
+  }
+  .bingkai-fotografer {
+    display: flex; flex-direction: column; gap: 6px;
+    border-left: 1px solid var(--warna-garis);
+    padding-left: 22px;
+  }
+  .bingkai-fotografer .nama-fotografer { font-family: var(--fon-tampil); font-size: 1.3rem; }
+  .tombol-jelajah {
+    margin-top: 34px;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: none; border: 1px solid var(--warna-teks); color: var(--warna-teks);
+    outline: 1px solid var(--warna-teks); outline-offset: 4px;
+    padding: 14px 26px; border-radius: 1px; font-family: var(--fon-tampil); font-variant: small-caps;
+    font-size: 1rem; letter-spacing: .03em;
+    transition: background var(--durasi-cepat), color var(--durasi-cepat);
+    width: fit-content;
+    margin-right: 4px;
+  }
+  .tombol-jelajah:hover { background: var(--warna-teks); color: var(--warna-latar); }
+  .tombol-jelajah svg { width: 15px; height: 15px; transition: transform var(--durasi-cepat); }
+  .tombol-jelajah:hover svg { transform: translateY(3px); }
+
+  /* ===== FOTO UTAMA ===== */
+  .tampilan-foto-utama { padding: 40px var(--jarak-tepi) 100px; }
+  .wadah-gambar-utama {
+    max-width: var(--lebar-konten); margin: 0 auto;
+    position: relative;
+    background: var(--warna-latar-dua);
+    border: 1px solid var(--warna-garis);
+    padding: clamp(10px, 2vw, 22px);
+    box-shadow: var(--bayangan-gambar);
+  }
+  .wadah-gambar-utama::after {
+    content: "";
+    position: absolute; inset: clamp(5px, 1vw, 11px);
+    border: 1px solid var(--warna-garis);
+    pointer-events: none;
+  }
+  .gambar-pameran { width: 100%; height: auto; cursor: zoom-in; display: block; }
+  .tombol-perbesar {
+    position: absolute; bottom: clamp(20px, 3vw, 34px); right: clamp(20px, 3vw, 34px);
+    background: var(--warna-latar); backdrop-filter: blur(6px);
+    color: var(--warna-teks); border: 1px solid var(--warna-garis);
+    padding: 9px 16px; border-radius: 1px; font-family: var(--fon-tampil); font-variant: small-caps; font-size: .95rem; letter-spacing: .02em;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .keterangan-foto {
+    max-width: var(--lebar-konten); margin: 18px auto 0; padding: 0;
+    display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    font-size: .78rem; color: var(--warna-teks-redup);
+  }
+
+  /* ===== CERITA (editorial two-column) ===== */
+  .bagian-cerita { padding: 90px var(--jarak-tepi); background: var(--warna-latar-dua); }
+  .kisi-cerita {
+    max-width: var(--lebar-konten); margin: 0 auto;
+    display: grid; grid-template-columns: .7fr 1fr; gap: 60px;
+  }
+  .kutipan-cerita {
+    font-family: var(--fon-tampil); font-style: italic; font-weight: 500;
+    font-size: clamp(1.5rem, 2.6vw, 2.2rem); line-height: 1.3;
+    border-left: 2px solid var(--warna-aksen); padding-left: 24px;
+    align-self: start; position: sticky; top: 110px;
+  }
+  .kutipan-cerita::before {
+    content: "\201C";
+    display: block;
+    font-size: 3.2rem; line-height: .6; color: var(--warna-aksen);
+    margin-bottom: 8px; font-style: normal;
+  }
+  .teks-cerita { font-size: 1.02rem; color: var(--warna-teks); max-width: 62ch; }
+  .teks-cerita p { margin-bottom: 1.1em; }
+  .teks-cerita p:last-child { margin-bottom: 0; }
+  .judul-bagian {
+    font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+    margin-bottom: 30px;
+  }
+
+  /* ===== TEKNIS (data viz) ===== */
+  .bagian-teknis { padding: 100px var(--jarak-tepi); }
+  .kepala-teknis { max-width: var(--lebar-konten); margin: 0 auto 50px; display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
+  .kisi-angka-teknis {
+    max-width: var(--lebar-konten); margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--warna-garis); border: 1px solid var(--warna-garis);
+  }
+  .kartu-angka-teknis { background: var(--warna-latar); padding: 32px 22px; display: flex; flex-direction: column; gap: 8px; }
+  .kartu-angka-teknis .nilai-teknis { font-family: var(--fon-tampil); font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1; font-feature-settings: "onum"; }
+  .kartu-angka-teknis .label-teknis { font-size: .7rem; letter-spacing: .1em; color: var(--warna-teks-redup); }
+  .kartu-angka-teknis .penjelasan-teknis { font-size: .78rem; color: var(--warna-teks-redup); margin-top: auto; padding-top: 10px; }
+  .daftar-teknis-sekunder {
+    max-width: var(--lebar-konten); margin: 1px auto 0;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--warna-garis); border: 1px solid var(--warna-garis); border-top: none;
+  }
+  .butir-teknis-sekunder { background: var(--warna-latar); padding: 20px 22px; }
+  .butir-teknis-sekunder .label-teknis { font-size: .68rem; letter-spacing: .08em; color: var(--warna-teks-redup); display: block; margin-bottom: 6px; }
+  .butir-teknis-sekunder .nilai-teknis-kecil { font-size: 1.05rem; font-weight: 600; }
+
+  /* ===== ARTISTIK (asymmetric) ===== */
+  .bagian-artistik { padding: 100px var(--jarak-tepi); background: var(--warna-latar-dua); }
+  .daftar-artistik { max-width: var(--lebar-konten); margin: 0 auto; display: flex; flex-direction: column; }
+  .butir-artistik {
+    display: grid; grid-template-columns: .35fr .65fr; gap: 30px;
+    padding: 34px 0; border-top: 1px solid var(--warna-garis);
+  }
+  .butir-artistik:last-child { border-bottom: 1px solid var(--warna-garis); }
+  .butir-artistik:nth-child(even) { grid-template-columns: .55fr .45fr; }
+  .butir-artistik:nth-child(even) .isi-artistik { order: -1; }
+  .label-artistik { font-family: var(--fon-tampil); font-size: 1.4rem; color: var(--warna-aksen-teks); }
+  .isi-artistik { font-size: 1rem; max-width: 56ch; }
+
+  /* ===== CATATAN FOTOGRAFER ===== */
+  .bagian-catatan-fotografer { padding: 110px var(--jarak-tepi); }
+  .wadah-catatan { max-width: 760px; margin: 0 auto; text-align: center; }
+  .wadah-catatan .label-kecil { display: block; margin-bottom: 22px; }
+  .isi-catatan { font-family: var(--fon-tampil); font-size: clamp(1.4rem, 2.6vw, 2rem); font-style: italic; line-height: 1.45; }
+  .tanda-tangan-catatan { margin-top: 30px; font-size: .85rem; color: var(--warna-teks-redup); }
+
+  /* ===== KUIS ===== */
+  .area-kuis { padding: 100px var(--jarak-tepi) 120px; background: var(--warna-latar-tiga); position: relative; overflow: hidden; }
+  .area-kuis::before {
+    content: "";
+    position: absolute; inset: 0; z-index: 0;
+    background-color: var(--warna-aksen);
+    -webkit-mask-image: var(--motif-mendung); mask-image: var(--motif-mendung);
+    -webkit-mask-repeat: repeat; mask-repeat: repeat;
+    -webkit-mask-size: 160px 125px; mask-size: 160px 125px;
+    -webkit-mask-position: top center; mask-position: top center;
+    opacity: .07;
+    pointer-events: none;
+  }
+  .area-kuis .wadah-kuis { position: relative; z-index: 1; }
+  .wadah-kuis { max-width: 720px; margin: 0 auto; }
+  .kepala-kuis { text-align: center; margin-bottom: 44px; }
+  .kepala-kuis h2 { font-size: clamp(2rem, 4.5vw, 3rem); }
+  .kepala-kuis .subjudul-kuis { color: var(--warna-teks-redup); margin-top: 10px; font-size: 1.02rem; }
+
+  .panel-kuis {
+    background: var(--warna-latar); border: 1px solid var(--warna-garis); border-radius: 1px; padding: 36px;
+    box-shadow: 0 0 0 5px var(--warna-latar), 0 0 0 6px var(--warna-garis);
+  }
+  .panel-intro-kuis { text-align: center; padding: 50px 36px; }
+  .panel-intro-kuis p { color: var(--warna-teks-redup); margin: 14px 0 28px; }
+  .tombol-utama-kuis {
+    background: var(--warna-aksen); color: var(--warna-latar); border: 1px solid var(--warna-aksen);
+    padding: 15px 32px; border-radius: 1px; font-family: var(--fon-tampil); font-variant: small-caps; font-weight: 600; font-size: 1.05rem; letter-spacing: .02em;
+    transition: transform var(--durasi-cepat);
+  }
+  .tombol-utama-kuis:hover { transform: translateY(-2px); }
+  .tombol-utama-kuis:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+
+  .bilah-kemajuan-kuis { height: 2px; background: var(--warna-garis); border-radius: 0; overflow: hidden; margin-bottom: 20px; }
+  .isi-kemajuan { height: 100%; background: var(--warna-aksen); width: 0%; transition: width var(--durasi-sedang) ease; }
+  .meta-pertanyaan { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+  .meta-pertanyaan .label-level { font-size: .68rem; letter-spacing: .1em; color: var(--warna-aksen-teks); font-weight: 700; }
+  .meta-pertanyaan .hitung-pertanyaan { font-size: .78rem; color: var(--warna-teks-redup); }
+  .teks-pertanyaan { font-family: var(--fon-tampil); font-size: clamp(1.3rem, 3vw, 1.7rem); margin-bottom: 26px; line-height: 1.3; }
+
+  .daftar-pilihan { display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; }
+  .pilihan-jawaban {
+    display: flex; align-items: center; gap: 14px;
+    text-align: left; background: var(--warna-latar-dua); border: 1px solid var(--warna-garis);
+    padding: 15px 18px; border-radius: 1px; font-size: 1rem; color: var(--warna-teks);
+    transition: border-color var(--durasi-cepat), background var(--durasi-cepat);
+  }
+  .pilihan-jawaban:hover:not(:disabled) { border-color: var(--warna-aksen); }
+  .pilihan-jawaban .penanda-pilihan {
+    width: 26px; height: 26px; border-radius: 1px; border: 1px solid var(--warna-garis);
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    font-family: var(--fon-tampil); font-size: .82rem; color: var(--warna-teks-redup);
+  }
+  .pilihan-jawaban.dipilih { border-color: var(--warna-aksen); background: var(--warna-latar-tiga); }
+  .pilihan-jawaban.dipilih .penanda-pilihan { background: var(--warna-aksen); color: var(--warna-latar); border-color: var(--warna-aksen); }
+  .pilihan-jawaban.jawaban-benar { border-color: var(--warna-benar); }
+  .pilihan-jawaban.jawaban-benar .penanda-pilihan { background: var(--warna-benar); border-color: var(--warna-benar); color: var(--warna-latar); }
+  .pilihan-jawaban.jawaban-salah { border-color: var(--warna-salah); }
+  .pilihan-jawaban.jawaban-salah .penanda-pilihan { background: var(--warna-salah); border-color: var(--warna-salah); color: var(--warna-latar); }
+  .pilihan-jawaban:disabled { cursor: default; }
+
+  .umpan-balik-kuis {
+    display: none; padding: 16px 18px; border-radius: 1px; margin-bottom: 20px;
+    font-size: .95rem; border: 1px solid var(--warna-garis);
+  }
+  .umpan-balik-kuis.tampil { display: block; }
+  .umpan-balik-kuis.benar { border-color: var(--warna-benar); color: var(--warna-benar); }
+  .umpan-balik-kuis.salah { border-color: var(--warna-salah); color: var(--warna-salah); }
+  .umpan-balik-kuis .penjelasan-jawaban { color: var(--warna-teks); margin-top: 8px; display: block; }
+
+  .baris-tombol-kuis { display: flex; justify-content: flex-end; gap: 12px; }
+  .tombol-sekunder-kuis {
+    background: none; border: 1px solid var(--warna-garis); color: var(--warna-teks);
+    padding: 13px 24px; border-radius: 1px; font-family: var(--fon-tampil); font-variant: small-caps; font-size: .98rem;
+  }
+  .tombol-sekunder-kuis:disabled { opacity: .35; cursor: not-allowed; }
+
+  .panel-hasil-kuis { text-align: center; }
+  .skor-besar-hasil { font-family: var(--fon-tampil); font-size: clamp(3.5rem, 10vw, 6rem); line-height: 1; }
+  .persentase-hasil { font-size: 1.3rem; color: var(--warna-aksen-teks); margin-top: 6px; }
+  .rincian-hasil { display: flex; justify-content: center; gap: 30px; margin: 22px 0; font-size: .85rem; color: var(--warna-teks-redup); }
+  .kategori-hasil { font-family: var(--fon-tampil); font-size: 1.4rem; margin: 18px 0 30px; }
+  .baris-tombol-hasil { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+  /* ===== PENUTUP ===== */
+  .bagian-penutup { min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 90px var(--jarak-tepi); position: relative; overflow: hidden; }
+  .bagian-penutup::before {
+    content: "";
+    position: absolute; inset: 0; z-index: 0;
+    background-color: var(--warna-aksen);
+    -webkit-mask-image: var(--motif-batik); mask-image: var(--motif-batik);
+    -webkit-mask-repeat: repeat; mask-repeat: repeat;
+    -webkit-mask-size: 84px 84px; mask-size: 84px 84px;
+    -webkit-mask-position: bottom left; mask-position: bottom left;
+    opacity: .06;
+    pointer-events: none;
+  }
+  .bagian-penutup .pesan-penutup { position: relative; z-index: 1; }
+  .pesan-penutup { font-family: var(--fon-tampil); font-size: clamp(1.8rem, 5vw, 3.2rem); max-width: 16ch; line-height: 1.2; font-style: italic; }
+
+  /* ===== FOOTER ===== */
+  .kaki-situs { padding: 40px var(--jarak-tepi); border-top: 3px double var(--warna-garis); }
+  .kisi-footer { max-width: var(--lebar-konten); margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: .78rem; color: var(--warna-teks-redup); }
+
+  /* ===== LIGHTBOX ===== */
+  .lightbox-foto {
+    position: fixed; inset: 0; background: rgba(10,9,7,.92); backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center; padding: 24px;
+    opacity: 0; pointer-events: none; transition: opacity var(--durasi-cepat);
+    z-index: 100;
+  }
+  .lightbox-foto.aktif { opacity: 1; pointer-events: auto; }
+  .lightbox-foto img { max-height: 90vh; max-width: 92vw; border-radius: 0; border: 6px solid var(--warna-latar-dua); }
+  .tutup-lightbox {
+    position: absolute; top: env(safe-area-inset-top, 20px); right: 24px;
+    width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3);
+    background: rgba(255,255,255,.08); color: #fff; font-size: 1.1rem;
+  }
+
+  /* ===== REVEAL ANIMATIONS ===== */
+  .tampak-bertahap { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s ease; }
+  .tampak-bertahap.terlihat { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    .tampak-bertahap { opacity: 1; transform: none; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .kisi-pembuka { grid-template-columns: 1fr; gap: 26px; }
+    .nomor-karya-besar { position: static; -webkit-text-stroke: 1px var(--warna-teks-redup); font-size: clamp(4rem, 22vw, 6rem); margin-bottom: -10px; }
+    .bagian-pembuka { padding-top: 110px; align-items: start; }
+    .kisi-cerita { grid-template-columns: 1fr; gap: 30px; }
+    .kutipan-cerita { position: static; }
+    .kisi-angka-teknis { grid-template-columns: repeat(2, 1fr); }
+    .daftar-teknis-sekunder { grid-template-columns: 1fr 1fr; }
+    .butir-artistik, .butir-artistik:nth-child(even) { grid-template-columns: 1fr; gap: 10px; }
+    .butir-artistik:nth-child(even) .isi-artistik { order: 0; }
+    .bingkai-fotografer { border-left: none; padding-left: 0; border-top: 1px solid var(--warna-garis); padding-top: 14px; }
+  }
+  @media (max-width: 520px) {
+    .kisi-angka-teknis { grid-template-columns: 1fr 1fr; }
+    .daftar-teknis-sekunder { grid-template-columns: 1fr; }
+    .panel-kuis { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="kepala-situs">
+  <div class="identitas-pameran">
+    <span class="nama-sekolah" id="teks-nama-sekolah">SMAN 1 Maja</span>
+    <span class="nama-pameran" id="teks-nama-pameran">PHOTOGRAPHY EXHIBITION</span>
+  </div>
+  <button class="tombol-tema" id="tombol-ganti-tema" aria-label="Ganti tema tampilan" type="button">
+    <svg class="ikon-bulan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+    <svg class="ikon-matahari" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+  </button>
+</header>
+
+<main>
+
+  <section id="bagian-pembuka" class="bagian-pembuka">
+    <span class="nomor-karya-besar" id="nomor-karya-besar"></span>
+    <div class="kisi-pembuka">
+      <div class="metadata-pembuka">
+        <div class="baris-meta">
+          <span id="teks-tagline-kecil"></span>
+          <span id="teks-kategori-foto"></span>
+        </div>
+        <h1 class="judul-karya" id="judul-karya"></h1>
+        <button class="tombol-jelajah" id="tombol-jelajah-karya" type="button">
+          Jelajahi Karya
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
+        </button>
+      </div>
+      <div class="bingkai-fotografer">
+        <span class="label-kecil">Fotografer</span>
+        <span class="nama-fotografer" id="teks-nama-fotografer"></span>
+        <span class="label-kecil" id="teks-tahun-lokasi"></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="bagian-foto" class="tampilan-foto-utama">
+    <div class="wadah-gambar-utama tampak-bertahap">
+      <img class="gambar-pameran" id="gambar-karya" src="" alt="">
+      <button class="tombol-perbesar" id="tombol-buka-lightbox" type="button">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        Perbesar
+      </button>
+    </div>
+    <div class="keterangan-foto">
+      <span id="teks-deskripsi-gambar"></span>
+      <span id="teks-tanggal-foto"></span>
+    </div>
+  </section>
+
+  <div class="pita-batik" aria-hidden="true"></div>
+  <section id="bagian-cerita" class="bagian-cerita">
+    <div class="kisi-cerita">
+      <p class="kutipan-cerita tampak-bertahap" id="kutipan-cerita"></p>
+      <div>
+        <h2 class="judul-bagian tampak-bertahap">The Story Behind the Frame</h2>
+        <div class="teks-cerita tampak-bertahap" id="teks-cerita-lengkap"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bagian-teknis" class="bagian-teknis">
+    <div class="kepala-teknis tampak-bertahap">
+      <h2 class="judul-bagian" style="margin-bottom:0">Camera &amp; Technical Details</h2>
+      <span class="label-kecil" id="teks-kamera-lensa"></span>
+    </div>
+    <div class="kisi-angka-teknis" id="kisi-angka-teknis"></div>
+    <div class="daftar-teknis-sekunder" id="daftar-teknis-sekunder"></div>
+  </section>
+
+  <section id="bagian-artistik" class="bagian-artistik">
+    <h2 class="judul-bagian tampak-bertahap" style="max-width:1180px;margin-left:auto;margin-right:auto">Understanding the Frame</h2>
+    <div class="daftar-artistik" id="daftar-artistik"></div>
+  </section>
+
+  <section id="bagian-catatan" class="bagian-catatan-fotografer">
+    <div class="wadah-catatan tampak-bertahap">
+      <span class="label-kecil">Photographer's Note</span>
+      <p class="isi-catatan" id="isi-catatan-fotografer"></p>
+      <p class="tanda-tangan-catatan" id="tanda-tangan-catatan"></p>
+    </div>
+  </section>
+
+  <div class="pita-batik pita-mendung" aria-hidden="true"></div>
+  <section id="bagian-kuis" class="area-kuis">
+    <div class="wadah-kuis">
+      <div class="kepala-kuis">
+        <h2>Photo Challenge</h2>
+        <p class="subjudul-kuis">Look closer. Think deeper. Test your photography knowledge.</p>
+      </div>
+
+      <div class="panel-kuis panel-intro-kuis" id="panel-intro-kuis">
+        <span class="label-kecil" id="teks-jumlah-soal"></span>
+        <p>Amati karya ini dengan saksama, lalu uji pemahamanmu tentang observasi, teknik kamera, dan analisis fotografi.</p>
+        <button class="tombol-utama-kuis" id="tombol-mulai-kuis" type="button">Mulai Tantangan</button>
+      </div>
+
+      <div class="panel-kuis" id="panel-pertanyaan-kuis" style="display:none">
+        <div class="bilah-kemajuan-kuis"><div class="isi-kemajuan" id="isi-kemajuan"></div></div>
+        <div class="meta-pertanyaan">
+          <span class="label-level" id="label-level-kuis"></span>
+          <span class="hitung-pertanyaan" id="hitung-pertanyaan-kuis"></span>
+        </div>
+        <h3 class="teks-pertanyaan" id="teks-pertanyaan-kuis"></h3>
+        <div class="daftar-pilihan" id="daftar-pilihan-kuis"></div>
+        <div class="umpan-balik-kuis" id="umpan-balik-kuis">
+          <strong id="judul-umpan-balik"></strong>
+          <span class="penjelasan-jawaban" id="penjelasan-umpan-balik"></span>
+        </div>
+        <div class="baris-tombol-kuis">
+          <button class="tombol-sekunder-kuis" id="tombol-kunci-jawaban" type="button" disabled>Kunci Jawaban</button>
+          <button class="tombol-utama-kuis" id="tombol-lanjutkan-kuis" type="button" style="display:none">Lanjutkan</button>
+        </div>
+      </div>
+
+      <div class="panel-kuis panel-hasil-kuis" id="panel-hasil-kuis" style="display:none">
+        <span class="label-kecil">Your Result</span>
+        <div class="skor-besar-hasil" id="skor-pecahan-hasil"></div>
+        <div class="persentase-hasil" id="skor-persen-hasil"></div>
+        <div class="rincian-hasil">
+          <span id="rincian-benar"></span>
+          <span id="rincian-salah"></span>
+        </div>
+        <div class="kategori-hasil" id="kategori-hasil"></div>
+        <div class="baris-tombol-hasil">
+          <button class="tombol-sekunder-kuis" id="tombol-ulangi-kuis" type="button">Ulangi Kuis</button>
+          <button class="tombol-utama-kuis" id="tombol-kembali-karya" type="button">Kembali ke Karya</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pita-batik" aria-hidden="true"></div>
+  <section id="bagian-penutup" class="bagian-penutup">
+    <p class="pesan-penutup tampak-bertahap" id="pesan-penutup"></p>
+  </section>
+
+</main>
+
+<footer class="kaki-situs">
+  <div class="kisi-footer">
+    <span id="teks-footer-nama"></span>
+    <span id="teks-footer-tahun"></span>
+  </div>
+</footer>
+
+<div class="lightbox-foto" id="lightbox-foto" aria-hidden="true">
+  <button class="tutup-lightbox" id="tombol-tutup-lightbox" aria-label="Tutup" type="button">&times;</button>
+  <img id="gambar-lightbox" src="" alt="">
+</div>
+
+<script>
+/* =========================================================
+   KONFIGURASI PAMERAN
+   Untuk membuat halaman karya baru: cukup ubah seluruh isi
+   objek DATA_FOTO di bawah ini. Tidak perlu mengubah CSS
+   maupun fungsi JavaScript lainnya.
+   ========================================================= */
+const DATA_FOTO = {
+  pameran: {
+    nama: "SMAN 1 MAJA PHOTOGRAPHY EXHIBITION",
+    slogan: "EVERY FRAME TELLS A STORY",
+    tahun: "2026"
+  },
+
+  tampilan: {
+    temaAwal: "gelap", // "gelap" | "terang" | "otomatis"
+    warnaAksen: "#C8996A"
+  },
+
+  foto: {
+    nomor: "001",
+    judul: "The Last Light",
+    gambar: "img.jpeg",
+    deskripsiGambar: "Pemandangan matahari terbenam dari area persawahan Maja.",
+    kategori: "Landscape Photography",
+    fotografer: "Nama Siswa",
+    lokasi: "Maja, Majalengka",
+    tanggal: "15 Oktober 2026"
+  },
+
+  cerita: {
+    kutipan: "Cahaya terakhir selalu datang paling tenang.",
+    ringkasan: "Foto ini diambil beberapa menit sebelum matahari benar-benar tenggelam di balik perbukitan Maja.",
+    lengkap: "Fotografer menunggu hampir satu jam di pematang sawah untuk mendapatkan momen ini. Udara sore yang dingin dan suara jangkrik yang mulai bersahutan menjadi latar dari proses pengambilan gambar.\n\nSaat matahari mulai mendekati garis cakrawala, warna langit berubah drastis dalam hitungan menit. Fotografer harus cepat mengatur komposisi agar siluet pepohonan tetap terlihat jelas tanpa menutupi gradasi warna langit.\n\nBagi fotografer, momen ini merepresentasikan ketenangan yang jarang disadari banyak orang — bahwa hari yang paling melelahkan sekalipun selalu diakhiri dengan sesuatu yang indah."
+  },
+
+  teknis: {
+    kamera: "Canon EOS 80D",
+    lensa: "Canon EF-S 18-55mm",
+    panjangFokus: "35mm",
+    bukaanDiafragma: "f/2.8",
+    kecepatanRana: "1/250s",
+    iso: "100",
+    kompensasiEksposur: "0 EV",
+    modePemotretan: "Manual",
+    keseimbanganPutih: "Auto",
+    waktuPengambilan: "16:45 WIB",
+    formatGambar: "JPEG",
+    resolusi: "6000 × 4000 px"
+  },
+
+  artistik: {
+    komposisi: "Menggunakan aturan sepertiga dengan garis cakrawala berada di bagian bawah bingkai, memberi ruang lebih besar bagi gradasi warna langit.",
+    pencahayaan: "Memanfaatkan golden hour sebagai sumber cahaya utama, menghasilkan gradasi warna hangat dari kuning ke jingga tua.",
+    perspektif: "Sudut pandang rendah dipilih agar siluet pepohonan terlihat tegas berbatasan langsung dengan langit.",
+    ruangTajam: "Aperture f/2.8 menghasilkan ruang tajam yang cukup luas untuk pemandangan, sambil tetap melembutkan elemen terdekat kamera.",
+    warna: "Dominasi warna jingga dan ungu muda dibiarkan natural tanpa koreksi warna berlebihan untuk menjaga keaslian suasana.",
+    tujuanKreatif: "Mengajak penonton merasakan momen hening di penghujung hari yang sering terlewat begitu saja."
+  },
+
+  kuis: [
+    {
+      kategori: "OBSERVATION",
+      pertanyaan: "Apa objek utama dalam foto ini?",
+      pilihan: ["Bangunan", "Pepohonan", "Manusia", "Pemandangan alam"],
+      jawabanBenar: 3,
+      penjelasan: "Objek utama yang ditampilkan adalah pemandangan alam saat matahari terbenam."
+    },
+    {
+      kategori: "OBSERVATION",
+      pertanyaan: "Dari arah mana cahaya utama pada foto ini berasal?",
+      pilihan: ["Dari atas", "Dari belakang kamera", "Dari arah matahari terbenam", "Dari lampu buatan"],
+      jawabanBenar: 2,
+      penjelasan: "Cahaya utama berasal dari matahari yang sedang terbenam di garis cakrawala."
+    },
+    {
+      kategori: "CAMERA KNOWLEDGE",
+      pertanyaan: "Berapa nilai ISO yang digunakan dalam pengambilan foto ini?",
+      pilihan: ["ISO 100", "ISO 400", "ISO 800", "ISO 1600"],
+      jawabanBenar: 0,
+      penjelasan: "Sesuai data teknis, foto ini menggunakan ISO 100 karena kondisi cahaya masih cukup terang."
+    },
+    {
+      kategori: "CAMERA KNOWLEDGE",
+      pertanyaan: "Berapa bukaan diafragma (aperture) yang digunakan?",
+      pilihan: ["f/1.4", "f/2.8", "f/8", "f/16"],
+      jawabanBenar: 1,
+      penjelasan: "Aperture yang digunakan adalah f/2.8, cukup lebar untuk kondisi cahaya yang mulai redup."
+    },
+    {
+      kategori: "CAMERA KNOWLEDGE",
+      pertanyaan: "Apa fungsi utama shutter speed dalam fotografi?",
+      pilihan: ["Mengatur warna foto", "Mengatur lama sensor menerima cahaya", "Mengatur fokus otomatis", "Mengatur resolusi gambar"],
+      jawabanBenar: 1,
+      penjelasan: "Shutter speed mengatur berapa lama sensor kamera menerima cahaya saat rana terbuka."
+    },
+    {
+      kategori: "PHOTOGRAPHY ANALYSIS",
+      pertanyaan: "Teknik komposisi apa yang paling terlihat pada foto ini?",
+      pilihan: ["Simetri penuh", "Aturan sepertiga (rule of thirds)", "Framing dalam bingkai", "Pola berulang"],
+      jawabanBenar: 1,
+      penjelasan: "Garis cakrawala diletakkan pada bagian bawah bingkai sesuai prinsip rule of thirds."
+    },
+    {
+      kategori: "PHOTOGRAPHY ANALYSIS",
+      pertanyaan: "Apa pengaruh golden hour terhadap suasana foto ini?",
+      pilihan: ["Membuat foto terlihat gelap total", "Menghasilkan warna hangat dan suasana tenang", "Menghilangkan semua bayangan", "Membuat objek terlihat biru"],
+      jawabanBenar: 1,
+      penjelasan: "Golden hour menghasilkan gradasi warna hangat yang memperkuat suasana tenang pada foto."
+    }
+  ],
+
+  catatanFotografer: {
+    isi: "Saya menunggu hampir satu jam di pematang sawah hanya untuk momen singkat ini. Rasanya sepadan — setiap kali langit berubah warna, saya diingatkan bahwa fotografi bukan tentang kesempurnaan teknis semata, tetapi tentang kesabaran menunggu momen yang tepat."
+  },
+
+  penutup: {
+    pesan: "Every photograph holds a story worth remembering."
+  }
+};
+
+/* =========================================================
+   TEMA
+   ========================================================= */
+function terapkanTema(tema) {
+  document.documentElement.setAttribute('data-tema', tema);
+}
+function inisialisasiTema() {
+  const tersimpan = localStorage.getItem('temaPameran');
+  if (tersimpan) { terapkanTema(tersimpan); return; }
+  const awal = DATA_FOTO.tampilan.temaAwal;
+  if (awal === 'otomatis') {
+    const sukaGelap = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    terapkanTema(sukaGelap ? 'gelap' : 'terang');
+  } else {
+    terapkanTema(awal);
+  }
+}
+function ubahTema() {
+  const sekarang = document.documentElement.getAttribute('data-tema');
+  const baru = sekarang === 'gelap' ? 'terang' : 'gelap';
+  terapkanTema(baru);
+  localStorage.setItem('temaPameran', baru);
+}
+
+/* =========================================================
+   RENDER KONTEN DARI DATA_FOTO
+   ========================================================= */
+function teksAman(nilai) {
+  return (nilai === undefined || nilai === null) ? '' : String(nilai);
+}
+
+function tampilkanFoto() {
+  const p = DATA_FOTO.pameran, f = DATA_FOTO.foto;
+  document.getElementById('judul-halaman').textContent = f.judul + ' — ' + p.nama;
+  document.getElementById('teks-nama-sekolah').textContent = 'SMAN 1 Maja';
+  document.getElementById('teks-nama-pameran').textContent = 'PHOTOGRAPHY EXHIBITION';
+  document.getElementById('nomor-karya-besar').textContent = teksAman(f.nomor);
+  document.getElementById('teks-tagline-kecil').textContent = p.slogan;
+  document.getElementById('teks-kategori-foto').textContent = teksAman(f.kategori);
+  document.getElementById('judul-karya').textContent = teksAman(f.judul);
+  document.getElementById('teks-nama-fotografer').textContent = teksAman(f.fotografer);
+  document.getElementById('teks-tahun-lokasi').textContent = [f.lokasi, f.tanggal].filter(Boolean).join(' — ');
+
+  const gambar = document.getElementById('gambar-karya');
+  gambar.src = f.gambar; gambar.alt = f.deskripsiGambar || f.judul;
+  gambar.onerror = () => { gambar.style.display = 'none'; };
+
+  const gambarBesar = document.getElementById('gambar-lightbox');
+  gambarBesar.src = f.gambar; gambarBesar.alt = f.deskripsiGambar || f.judul;
+
+  document.getElementById('teks-deskripsi-gambar').textContent = teksAman(f.deskripsiGambar);
+  document.getElementById('teks-tanggal-foto').textContent = teksAman(f.tanggal);
+
+  document.getElementById('teks-footer-nama').textContent = p.nama;
+  document.getElementById('teks-footer-tahun').textContent = '© ' + p.tahun;
+  document.getElementById('pesan-penutup').textContent = teksAman(DATA_FOTO.penutup?.pesan);
+}
+
+function tampilkanCerita() {
+  const c = DATA_FOTO.cerita || {};
+  const bagian = document.getElementById('bagian-cerita');
+  if (!c.ringkasan && !c.lengkap) { bagian.style.display = 'none'; return; }
+  document.getElementById('kutipan-cerita').textContent = c.kutipan || c.ringkasan || '';
+  const wadah = document.getElementById('teks-cerita-lengkap');
+  wadah.innerHTML = '';
+  if (c.ringkasan) {
+    const p1 = document.createElement('p'); p1.textContent = c.ringkasan; wadah.appendChild(p1);
+  }
+  (c.lengkap || '').split(/\n+/).filter(Boolean).forEach(paragraf => {
+    const p = document.createElement('p'); p.textContent = paragraf; wadah.appendChild(p);
+  });
+}
+
+function tampilkanInformasiTeknis() {
+  const t = DATA_FOTO.teknis || {};
+  document.getElementById('teks-kamera-lensa').textContent = [t.kamera, t.lensa].filter(Boolean).join(' · ');
+
+  const utama = [
+    { kunci: 'bukaanDiafragma', label: 'APERTURE', bantu: 'Mengatur lebar bukaan lensa dan kedalaman ruang tajam.' },
+    { kunci: 'kecepatanRana', label: 'SHUTTER SPEED', bantu: 'Mengatur durasi sensor menerima cahaya.' },
+    { kunci: 'iso', label: 'ISO', bantu: 'Mengatur sensitivitas sensor terhadap cahaya.', prefiks: 'ISO ' },
+    { kunci: 'panjangFokus', label: 'FOCAL LENGTH', bantu: 'Mengatur jangkauan dan sudut pandang lensa.' }
+  ];
+  const kisi = document.getElementById('kisi-angka-teknis');
+  kisi.innerHTML = '';
+  utama.forEach(item => {
+    const nilai = t[item.kunci];
+    if (!nilai) return;
+    const kartu = document.createElement('div');
+    kartu.className = 'kartu-angka-teknis tampak-bertahap';
+    kartu.innerHTML = `<span class="nilai-teknis">${teksAman(nilai)}</span><span class="label-teknis">${item.label}</span><span class="penjelasan-teknis">${item.bantu}</span>`;
+    kisi.appendChild(kartu);
+  });
+
+  const sekunder = [
+    { kunci: 'kamera', label: 'CAMERA' },
+    { kunci: 'lensa', label: 'LENS' },
+    { kunci: 'kompensasiEksposur', label: 'EXPOSURE COMPENSATION' },
+    { kunci: 'modePemotretan', label: 'SHOOTING MODE' },
+    { kunci: 'keseimbanganPutih', label: 'WHITE BALANCE' },
+    { kunci: 'waktuPengambilan', label: 'DATE & TIME' },
+    { kunci: 'formatGambar', label: 'IMAGE FORMAT' },
+    { kunci: 'resolusi', label: 'RESOLUTION' }
+  ];
+  const daftar = document.getElementById('daftar-teknis-sekunder');
+  daftar.innerHTML = '';
+  sekunder.forEach(item => {
+    const nilai = t[item.kunci];
+    if (!nilai) return;
+    const butir = document.createElement('div');
+    butir.className = 'butir-teknis-sekunder tampak-bertahap';
+    butir.innerHTML = `<span class="label-teknis">${item.label}</span><span class="nilai-teknis-kecil">${teksAman(nilai)}</span>`;
+    daftar.appendChild(butir);
+  });
+}
+
+function tampilkanArtistik() {
+  const a = DATA_FOTO.artistik || {};
+  const label = {
+    komposisi: 'Komposisi', pencahayaan: 'Pencahayaan', perspektif: 'Perspektif',
+    ruangTajam: 'Depth of Field', warna: 'Warna', tujuanKreatif: 'Tujuan Kreatif'
+  };
+  const wadah = document.getElementById('daftar-artistik');
+  wadah.innerHTML = '';
+  let adaIsi = false;
+  Object.keys(label).forEach(kunci => {
+    const nilai = a[kunci];
+    if (!nilai) return;
+    adaIsi = true;
+    const butir = document.createElement('div');
+    butir.className = 'butir-artistik tampak-bertahap';
+    butir.innerHTML = `<span class="label-artistik">${label[kunci]}</span><p class="isi-artistik">${teksAman(nilai)}</p>`;
+    wadah.appendChild(butir);
+  });
+  document.getElementById('bagian-artistik').style.display = adaIsi ? '' : 'none';
+}
+
+function tampilkanCatatanFotografer() {
+  const catatan = DATA_FOTO.catatanFotografer;
+  const bagian = document.getElementById('bagian-catatan');
+  if (!catatan || !catatan.isi) { bagian.style.display = 'none'; return; }
+  document.getElementById('isi-catatan-fotografer').textContent = '"' + catatan.isi + '"';
+  document.getElementById('tanda-tangan-catatan').textContent = '— ' + teksAman(DATA_FOTO.foto.fotografer);
+}
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+function bukaLightbox() {
+  const kotak = document.getElementById('lightbox-foto');
+  kotak.classList.add('aktif'); kotak.setAttribute('aria-hidden', 'false');
+}
+function tutupLightbox() {
+  const kotak = document.getElementById('lightbox-foto');
+  kotak.classList.remove('aktif'); kotak.setAttribute('aria-hidden', 'true');
+}
+
+/* =========================================================
+   KUIS — PHOTO CHALLENGE
+   ========================================================= */
+const kuisState = { indeks: 0, dipilih: null, dikunci: false, jumlahBenar: 0, jumlahSalah: 0 };
+
+function totalSoalKuis() { return (DATA_FOTO.kuis || []).length; }
+
+function inisialisasiKuis() {
+  const total = totalSoalKuis();
+  const bagian = document.getElementById('bagian-kuis');
+  if (total === 0) { bagian.style.display = 'none'; return; }
+  document.getElementById('teks-jumlah-soal').textContent = total + ' Pertanyaan · 3 Level Tantangan';
+}
+
+function mulaiKuis() {
+  kuisState.indeks = 0; kuisState.jumlahBenar = 0; kuisState.jumlahSalah = 0;
+  document.getElementById('panel-intro-kuis').style.display = 'none';
+  document.getElementById('panel-hasil-kuis').style.display = 'none';
+  document.getElementById('panel-pertanyaan-kuis').style.display = 'block';
+  tampilkanPertanyaan(0);
+}
+
+function tampilkanPertanyaan(indeks) {
+  const soal = DATA_FOTO.kuis[indeks];
+  const total = totalSoalKuis();
+  kuisState.dipilih = null; kuisState.dikunci = false;
+
+  document.getElementById('isi-kemajuan').style.width = Math.round((indeks / total) * 100) + '%';
+  document.getElementById('label-level-kuis').textContent = soal.kategori;
+  document.getElementById('hitung-pertanyaan-kuis').textContent = (indeks + 1) + ' / ' + total;
+  document.getElementById('teks-pertanyaan-kuis').textContent = soal.pertanyaan;
+
+  const daftar = document.getElementById('daftar-pilihan-kuis');
+  daftar.innerHTML = '';
+  soal.pilihan.forEach((teks, i) => {
+    const tombol = document.createElement('button');
+    tombol.type = 'button';
+    tombol.className = 'pilihan-jawaban';
+    tombol.innerHTML = `<span class="penanda-pilihan">${String.fromCharCode(65 + i)}</span><span>${teks}</span>`;
+    tombol.addEventListener('click', () => pilihJawaban(i));
+    daftar.appendChild(tombol);
+  });
+
+  const umpanBalik = document.getElementById('umpan-balik-kuis');
+  umpanBalik.className = 'umpan-balik-kuis';
+  document.getElementById('tombol-kunci-jawaban').disabled = true;
+  document.getElementById('tombol-kunci-jawaban').style.display = 'inline-flex';
+  document.getElementById('tombol-lanjutkan-kuis').style.display = 'none';
+}
+
+function pilihJawaban(indeksPilihan) {
+  if (kuisState.dikunci) return;
+  kuisState.dipilih = indeksPilihan;
+  document.querySelectorAll('.pilihan-jawaban').forEach((tombol, i) => {
+    tombol.classList.toggle('dipilih', i === indeksPilihan);
+  });
+  document.getElementById('tombol-kunci-jawaban').disabled = false;
+}
+
+function periksaJawaban() {
+  if (kuisState.dipilih === null || kuisState.dikunci) return;
+  kuisState.dikunci = true;
+  const soal = DATA_FOTO.kuis[kuisState.indeks];
+  const benar = kuisState.dipilih === soal.jawabanBenar;
+
+  document.querySelectorAll('.pilihan-jawaban').forEach((tombol, i) => {
+    tombol.disabled = true;
+    if (i === soal.jawabanBenar) tombol.classList.add('jawaban-benar');
+    else if (i === kuisState.dipilih) tombol.classList.add('jawaban-salah');
+  });
+
+  const umpanBalik = document.getElementById('umpan-balik-kuis');
+  umpanBalik.className = 'umpan-balik-kuis tampil ' + (benar ? 'benar' : 'salah');
+  document.getElementById('judul-umpan-balik').textContent = benar ? 'Jawaban Tepat.' : 'Belum Tepat.';
+  document.getElementById('penjelasan-umpan-balik').textContent = soal.penjelasan;
+
+  if (benar) kuisState.jumlahBenar++; else kuisState.jumlahSalah++;
+
+  document.getElementById('tombol-kunci-jawaban').style.display = 'none';
+  document.getElementById('tombol-lanjutkan-kuis').style.display = 'inline-flex';
+}
+
+function lanjutkanPertanyaan() {
+  kuisState.indeks++;
+  if (kuisState.indeks < totalSoalKuis()) {
+    tampilkanPertanyaan(kuisState.indeks);
+  } else {
+    tampilkanHasilAkhir();
+  }
+}
+
+function kategoriHasilKuis(persen) {
+  if (persen >= 90) return 'Photography Expert';
+  if (persen >= 70) return 'Visual Observer';
+  if (persen >= 50) return 'Curious Explorer';
+  return 'Keep Exploring';
+}
+
+function tampilkanHasilAkhir() {
+  const total = totalSoalKuis();
+  const persen = Math.round((kuisState.jumlahBenar / total) * 100);
+  document.getElementById('panel-pertanyaan-kuis').style.display = 'none';
+  document.getElementById('panel-hasil-kuis').style.display = 'block';
+  document.getElementById('isi-kemajuan').style.width = '100%';
+
+  document.getElementById('skor-pecahan-hasil').textContent = kuisState.jumlahBenar + ' / ' + total;
+  document.getElementById('skor-persen-hasil').textContent = persen + '%';
+  document.getElementById('rincian-benar').textContent = kuisState.jumlahBenar + ' Benar';
+  document.getElementById('rincian-salah').textContent = kuisState.jumlahSalah + ' Salah';
+  document.getElementById('kategori-hasil').textContent = kategoriHasilKuis(persen);
+}
+
+/* =========================================================
+   ANIMASI REVEAL (Intersection Observer)
+   ========================================================= */
+function aktifkanRevealBertahap() {
+  const kurangiGerak = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const elemen = document.querySelectorAll('.tampak-bertahap');
+  if (kurangiGerak || !('IntersectionObserver' in window)) {
+    elemen.forEach(el => el.classList.add('terlihat'));
+    return;
+  }
+  const pengamat = new IntersectionObserver((entri) => {
+    entri.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('terlihat'), i * 60);
+        pengamat.unobserve(e.target);
+      }
+    });
+  }, { threshold: .15 });
+  elemen.forEach(el => pengamat.observe(el));
+}
+function amatiUlangElemenBaru() {
+  // Dipanggil setelah konten dinamis (teknis & artistik) selesai dirender,
+  // agar elemen yang baru dibuat ikut diamati untuk animasi.
+  aktifkanRevealBertahap();
+}
+
+/* =========================================================
+   INISIALISASI
+   ========================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+  inisialisasiTema();
+  tampilkanFoto();
+  tampilkanCerita();
+  tampilkanInformasiTeknis();
+  tampilkanArtistik();
+  tampilkanCatatanFotografer();
+  inisialisasiKuis();
+  amatiUlangElemenBaru();
+
+  document.getElementById('tombol-ganti-tema').addEventListener('click', ubahTema);
+  document.getElementById('tombol-jelajah-karya').addEventListener('click', () => {
+    document.getElementById('bagian-foto').scrollIntoView({ behavior: 'smooth' });
+  });
+  document.getElementById('tombol-buka-lightbox').addEventListener('click', bukaLightbox);
+  document.getElementById('gambar-karya').addEventListener('click', bukaLightbox);
+  document.getElementById('tombol-tutup-lightbox').addEventListener('click', tutupLightbox);
+  document.getElementById('lightbox-foto').addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox-foto') tutupLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') tutupLightbox();
+  });
+
+  document.getElementById('tombol-mulai-kuis').addEventListener('click', mulaiKuis);
+  document.getElementById('tombol-kunci-jawaban').addEventListener('click', periksaJawaban);
+  document.getElementById('tombol-lanjutkan-kuis').addEventListener('click', lanjutkanPertanyaan);
+  document.getElementById('tombol-ulangi-kuis').addEventListener('click', mulaiKuis);
+  document.getElementById('tombol-kembali-karya').addEventListener('click', () => {
+    document.getElementById('panel-hasil-kuis').style.display = 'none';
+    document.getElementById('panel-intro-kuis').style.display = 'block';
+    document.getElementById('bagian-foto').scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
